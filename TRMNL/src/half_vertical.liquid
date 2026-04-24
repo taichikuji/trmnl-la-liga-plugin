@@ -1,13 +1,21 @@
-<div class="layout layout--col layout--center-center gap--medium lg:gap--large">
-  <div class="layout__item text--center">
-    <img class="image image-dither h--10" src="data:image/svg+xml;base64,{{ svg_logo | base64_encode }}" />
-    <div class="title title--base lg:title--large mt--1">
-      ¿Fútbol?
+<div class="layout">
+  <div class="richtext richtext--center gap">
+    <span class="title title--base lg:title--xlarge" data-pixel-perfect="true">¿Hay ahora fútbol?</span>
+    
+    <div class="mt--2 lg:mt--4">
+      {% assign blocked = data.is_blocked | default: is_blocked %}
+      <span class="title title--xlarge lg:title--xxlarge" style="font-size: 70px; line-height: 1;">{{ blocked }}</span>
     </div>
-    <div class="mt--1">
-      <span class="label label--filled text--large">{{ data.is_blocked | default: is_blocked }}</span>
+
+    <div class="description lg:description--large text--gray text--center">
+      {% if blocked == 'SÍ' %}
+        ...y por tanto, cientos de webs legítimas están inaccesibles desde los principales ISPs españoles.
+      {% else %}
+        ...pero, cuando lo hay, cientos de webs legítimas están inaccesibles desde los principales ISPs españoles.
+      {% endif %}
     </div>
   </div>
 </div>
 
-{% render 'title_bar', svg_logo: svg_logo, title: "Fútbol", update_time: data.last_update | default: last_update %}
+{% assign updated = data.last_update | default: last_update %}
+{% render 'title_bar', svg_logo: svg_logo, title: "Estado de LaLiga", update_time: updated %}

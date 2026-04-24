@@ -1,12 +1,13 @@
-<div class="layout layout--col layout--center-center">
-  <div class="layout__item text--center">
-    <div class="title title--small">
-      ¿Fútbol?
-    </div>
-    <div class="mt--1">
-      <span class="label label--filled text--base">{{ data.is_blocked | default: is_blocked }}</span>
+<div class="layout">
+  <div class="richtext richtext--center gap">
+    <span class="title title--base lg:title--large" data-pixel-perfect="true">¿Fútbol?</span>
+    
+    <div class="mt--1 lg:mt--2">
+      {% assign blocked = data.is_blocked | default: is_blocked %}
+      <span class="title title--xlarge lg:title--xxlarge" style="font-size: 60px; line-height: 1;">{{ blocked }}</span>
     </div>
   </div>
 </div>
 
-{% render 'title_bar', svg_logo: svg_logo, title: "", update_time: data.last_update | default: last_update %}
+{% assign updated = data.last_update | default: last_update %}
+{% render 'title_bar', svg_logo: svg_logo, title: "", update_time: updated %}
