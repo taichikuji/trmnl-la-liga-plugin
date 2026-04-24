@@ -1,0 +1,22 @@
+{%- capture svg_logo -%}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="256" height="256" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"></circle>
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+  <path d="M2 12h20"></path>
+</svg>
+{%- endcapture -%}
+
+{% template title_bar %}
+  <div class="title_bar">
+    <img
+      class="image-stroke image-stroke--large"
+      src="data:image/svg+xml;base64,{{ svg_logo | base64_encode }}"
+      width="28"
+      height="28"
+      alt="Logo" />
+    <span class="title">{{ title | default: 'La Liga Status' }}</span>
+    <span class="instance">
+      Actualizado: {{ update_time }}
+    </span>
+  </div>
+{% endtemplate %}

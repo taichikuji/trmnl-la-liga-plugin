@@ -1,0 +1,10 @@
+# TRMNLP configuration
+---
+# auto-reload when files change
+watch:
+  - src
+  - .trmnlp.yml
+
+# override variables for development
+variables:
+  trmnl: {}

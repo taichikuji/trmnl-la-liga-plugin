@@ -1,0 +1,13 @@
+<div class="layout layout--col layout--center-center gap--medium lg:gap--large">
+  <div class="layout__item text--center">
+    <img class="image image-dither h--10" src="data:image/svg+xml;base64,{{ svg_logo | base64_encode }}" />
+    <div class="title title--base lg:title--large mt--1">
+      ¿Fútbol?
+    </div>
+    <div class="mt--1">
+      <span class="label label--filled text--large">{{ data.is_blocked | default: is_blocked }}</span>
+    </div>
+  </div>
+</div>
+
+{% render 'title_bar', svg_logo: svg_logo, title: "Fútbol", update_time: data.last_update | default: last_update %}

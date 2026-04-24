@@ -1,0 +1,24 @@
+#
+# Changes to this file will be overwritten by `trmnlp pull`.
+#
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+serverless_language: node
+polling_url: 'https://hayahora.futbol/estado/data.json'
+polling_headers: ''
+polling_body: ''
+icon: media/icon.svg
+name: "¿Hay ahora fútbol?"
+refresh_interval: 15
+custom_fields:
+- keyname: author_bio
+  field_type: author_bio
+  name: About This Plugin
+  description: "Created by Ivan Perez. This plugin is for monitoring La Liga internet blockades on your TRMNL device."
+  category: "news"
+  learn_more_url: "https://discordid.taichikuji.org/discord"
+  github_url: "https://github.com/taichikuji/trmnl-la-liga-plugin"
