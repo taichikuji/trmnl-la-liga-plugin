@@ -1,21 +1,15 @@
 <div class="layout">
   <div class="richtext richtext--center gap">
-    <span class="title title--base lg:title--xlarge" data-pixel-perfect="true">¿Hay ahora fútbol?</span>
+    <span class="title title--base lg:title--xlarge" data-pixel-perfect="true">{{ t_title_long }}</span>
     
     <div class="mt--2 lg:mt--4">
-      {% assign blocked = data.is_blocked | default: is_blocked %}
-      <span class="title title--xlarge lg:title--xxlarge" style="font-size: 70px; line-height: 1;">{{ blocked }}</span>
+      <span class="title title--xlarge lg:title--xxlarge" style="font-size: 70px; line-height: 1;">{{ t_blocked_text }}</span>
     </div>
 
     <div class="description lg:description--large text--gray text--center">
-      {% if blocked == 'SÍ' %}
-        ...y por tanto, cientos de webs legítimas están inaccesibles desde los principales ISPs españoles.
-      {% else %}
-        ...pero, cuando lo hay, cientos de webs legítimas están inaccesibles desde los principales ISPs españoles.
-      {% endif %}
+      {{ t_desc_long }}
     </div>
   </div>
 </div>
 
-{% assign updated = data.last_update | default: last_update %}
-{% render 'title_bar', svg_logo: svg_logo, title: "Estado de LaLiga", update_time: updated %}
+{% render 'title_bar', svg_logo: svg_logo, title: t_status_bar, label: t_updated_label, val: t_updated_val %}

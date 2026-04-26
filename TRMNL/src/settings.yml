@@ -15,6 +15,14 @@ icon: media/icon.svg
 name: "¿Hay ahora fútbol?"
 refresh_interval: 15
 custom_fields:
+- keyname: language
+  field_type: select
+  name: Language
+  description: Choose the language for the plugin UI.
+  options:
+  - "Spanish"
+  - "English"
+  default: "spanish"
 - keyname: author_bio
   field_type: author_bio
   name: About This Plugin
