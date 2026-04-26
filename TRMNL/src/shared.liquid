@@ -25,7 +25,7 @@
   {%- assign t_desc_no = '...but when there is, hundreds of websites are inaccessible.' -%}
   {%- assign t_status_bar = 'La Liga Status' -%}
   {%- assign t_updated_label = 'Updated:' -%}
-  {%- assign t_updated_val = updated_time_raw | default: 'Unknown' -%}
+  {%- assign t_updated_val = updated_time_raw | date: "%H:%M" | default: 'Unknown' -%}
 {%- else -%}
   {%- assign t_title_long = '¿Hay ahora fútbol?' -%}
   {%- assign t_title_short = '¿Fútbol?' -%}
@@ -37,7 +37,7 @@
   {%- assign t_desc_no = '...pero, cuando lo hay, cientos de webs están inaccesibles.' -%}
   {%- assign t_status_bar = 'Estado de LaLiga' -%}
   {%- assign t_updated_label = 'Actualizado:' -%}
-  {%- assign t_updated_val = updated_time_raw | default: 'Desconocido' -%}
+  {%- assign t_updated_val = updated_time_raw | date: "%H:%M" | default: 'Desconocido' -%}
 {%- endif -%}
 
 {%- if is_blocked_bool -%}
@@ -50,6 +50,8 @@
   {%- assign t_desc = t_desc_no -%}
 {%- endif -%}
 
+{%- assign t_updated_text = t_updated_label | append: ' ' | append: t_updated_val -%}
+
 {% template title_bar %}
   <div class="title_bar">
     <img
@@ -60,7 +62,7 @@
       alt="Logo" />
     <span class="title">{{ title }}</span>
     <span class="instance">
-      {{ label }} {{ val }}
+      {{ update_time }}
     </span>
   </div>
 {% endtemplate %}
