@@ -2,6 +2,7 @@
 
 TRMNL plugin to know if LaLiga is blocking Cloudflare. Status + TRMNL templates. This README is focused on development and improving the project.
 
+Install it [here](https://trmnl.com/recipes/294074)!
 ## Requirements
 
 - A TRMNL capable device!
