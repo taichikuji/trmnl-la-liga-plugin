@@ -12,8 +12,6 @@
   {%- assign is_blocked_bool = false -%}
 {%- endif -%}
 
-{%- assign updated_time_raw = data.last_update | default: last_update -%}
-
 {%- if lang == 'english' -%}
   {%- assign t_title_long = 'Is there football now?' -%}
   {%- assign t_title_short = 'Football?' -%}
@@ -25,7 +23,6 @@
   {%- assign t_desc_no = '...but when there is, hundreds of websites are inaccessible.' -%}
   {%- assign t_status_bar = 'La Liga Status' -%}
   {%- assign t_updated_label = 'Updated:' -%}
-  {%- assign t_updated_val = updated_time_raw | date: "%H:%M" | default: 'Unknown' -%}
 {%- else -%}
   {%- assign t_title_long = '¿Hay ahora fútbol?' -%}
   {%- assign t_title_short = '¿Fútbol?' -%}
@@ -37,8 +34,8 @@
   {%- assign t_desc_no = '...pero, cuando lo hay, cientos de webs están inaccesibles.' -%}
   {%- assign t_status_bar = 'Estado de LaLiga' -%}
   {%- assign t_updated_label = 'Actualizado:' -%}
-  {%- assign t_updated_val = updated_time_raw | date: "%H:%M" | default: 'Desconocido' -%}
 {%- endif -%}
+{%- assign t_updated_val = trmnl.system.timestamp_utc | date: "%H:%M" | default: '--:--' -%}
 
 {%- if is_blocked_bool -%}
   {%- assign t_blocked_text = t_blocked_yes -%}

@@ -13,7 +13,6 @@ function transform(input) {
 
   // Return the tiny, compressed payload for the TRMNL screen
   return {
-    is_blocked: isBlocked,
-    last_update: input?.lastUpdate || null
+    is_blocked: isBlocked
   };
 }
