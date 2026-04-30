@@ -8,7 +8,7 @@ dark_mode: 'no'
 static_data: ''
 polling_verb: get
 serverless_language: node
-polling_url: 'https://hayahora.futbol/estado/data.json'
+polling_url: 'https://dns.google/resolve?name=blocked.dns.hayahora.futbol&type=A'
 polling_headers: ''
 polling_body: ''
 icon: media/icon.svg
