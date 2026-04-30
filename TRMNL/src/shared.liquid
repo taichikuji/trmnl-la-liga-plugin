@@ -33,7 +33,8 @@
   {%- assign t_status_bar = 'Estado de LaLiga' -%}
   {%- assign t_updated_label = 'Actualizado:' -%}
 {%- endif -%}
-{%- assign t_updated_val = trmnl.system.timestamp_utc | date: "%H:%M" | default: '--:--' -%}
+{%- assign _ts = trmnl.system.timestamp_utc | default: 'now' -%}
+{%- assign t_updated_val = _ts | date: "%H:%M" | default: '--:--' -%}
 
 {%- if is_blocked_bool -%}
   {%- assign t_blocked_text = t_blocked_yes -%}
