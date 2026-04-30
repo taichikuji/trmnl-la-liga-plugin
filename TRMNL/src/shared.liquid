@@ -5,11 +5,9 @@
 {%- assign lang_value = trmnl.plugin_settings.custom_fields_values.language | default: language | default: 'spanish' -%}
 {%- assign lang = lang_value | downcase -%}
 
-{%- assign blocked_bool = data.is_blocked | default: is_blocked | default: false -%}
-{%- if blocked_bool == true or blocked_bool == 'true' or blocked_bool == 'SÍ' or blocked_bool == 'YES' -%}
+{%- assign is_blocked_bool = false -%}
+{%- if data.Status == 0 and data.Answer.size > 0 -%}
   {%- assign is_blocked_bool = true -%}
-{%- else -%}
-  {%- assign is_blocked_bool = false -%}
 {%- endif -%}
 
 {%- if lang == 'english' -%}
