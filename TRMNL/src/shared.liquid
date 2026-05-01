@@ -6,6 +6,12 @@
 {%- assign lang = lang_value | downcase -%}
 
 {%- assign is_blocked_bool = false -%}
+{%- comment -%}
+  Status 0 = NOERROR in Google DoH; an Answer record means the monitoring
+  domain resolves, signalling an active block. If `data` is nil (polling
+  failure), both conditions are false and we intentionally default to
+  "not blocked" — the safe fallback for a display-only status plugin.
+{%- endcomment -%}
 {%- if data.Status == 0 and data.Answer.size > 0 -%}
   {%- assign is_blocked_bool = true -%}
 {%- endif -%}
