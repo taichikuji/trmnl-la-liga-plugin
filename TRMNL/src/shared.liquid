@@ -34,7 +34,7 @@
   {%- assign t_updated_label = 'Actualizado:' -%}
 {%- endif -%}
 {%- assign _ts = trmnl.system.timestamp_utc | default: 'now' -%}
-{%- assign t_updated_val = _ts | date: "%H:%M" | default: '--:--' -%}
+{%- assign t_updated_val = _ts | date: "%s" | plus: trmnl.user.utc_offset | date: "%H:%M" | default: '--:--' -%}
 
 {%- if is_blocked_bool -%}
   {%- assign t_blocked_text = t_blocked_yes -%}
