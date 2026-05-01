@@ -22,7 +22,7 @@ custom_fields:
   options:
   - "Spanish"
   - "English"
-  default: "spanish"
+  default: "Spanish"
 - keyname: author_bio
   field_type: author_bio
   name: About This Plugin
