@@ -1,4 +1,6 @@
 # TRMNLP configuration
+# The plugin setting ID used by the publish workflow (.github/workflows/publish-trmnl.yml)
+# is the integer found in the URL when editing your plugin on trmnl.com: /plugin_settings/<ID>/edit
 ---
 # auto-reload when files change
 watch:
