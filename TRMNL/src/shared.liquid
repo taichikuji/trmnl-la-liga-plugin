@@ -5,11 +5,15 @@
 {%- assign lang_value = trmnl.plugin_settings.custom_fields_values.language | default: language | default: 'spanish' -%}
 {%- assign lang = lang_value | downcase -%}
 
-{%- assign blocked_bool = data.is_blocked | default: is_blocked | default: false -%}
-{%- if blocked_bool == true or blocked_bool == 'true' or blocked_bool == 'SÍ' or blocked_bool == 'YES' -%}
-  {%- assign is_blocked_bool = true -%}
-{%- else -%}
-  {%- assign is_blocked_bool = false -%}
+{%- assign is_blocked = false -%}
+{%- comment -%}
+  Status 0 = NOERROR in Google DoH; an Answer record means the monitoring
+  domain resolves, signalling an active block. If `data` is nil (polling
+  failure), both conditions are false and we intentionally default to
+  "not blocked" — the safe fallback for a display-only status plugin.
+{%- endcomment -%}
+{%- if data.Status == 0 and data.Answer.size > 0 -%}
+  {%- assign is_blocked = true -%}
 {%- endif -%}
 
 {%- if lang == 'english' -%}
@@ -35,9 +39,10 @@
   {%- assign t_status_bar = 'Estado de LaLiga' -%}
   {%- assign t_updated_label = 'Actualizado:' -%}
 {%- endif -%}
-{%- assign t_updated_val = trmnl.system.timestamp_utc | date: "%H:%M" | default: '--:--' -%}
+{%- assign _ts = trmnl.system.timestamp_utc | default: 'now' -%}
+{%- assign t_updated_val = _ts | date: "%s" | plus: trmnl.user.utc_offset | date: "%H:%M" -%}
 
-{%- if is_blocked_bool -%}
+{%- if is_blocked -%}
   {%- assign t_blocked_text = t_blocked_yes -%}
   {%- assign t_desc_long = t_desc_yes_long -%}
   {%- assign t_desc = t_desc_yes -%}

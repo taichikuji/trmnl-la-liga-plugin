@@ -7,8 +7,8 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
-serverless_language: node
-polling_url: 'https://hayahora.futbol/estado/data.json'
+serverless_language: ''
+polling_url: 'https://dns.google/resolve?name=blocked.dns.hayahora.futbol&type=A'
 polling_headers: ''
 polling_body: ''
 icon: media/icon.svg
@@ -22,7 +22,7 @@ custom_fields:
   options:
   - "Spanish"
   - "English"
-  default: "spanish"
+  default: "Spanish"
 - keyname: author_bio
   field_type: author_bio
   name: About This Plugin

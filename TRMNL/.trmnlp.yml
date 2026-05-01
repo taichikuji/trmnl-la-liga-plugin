@@ -7,4 +7,6 @@ watch:
 
 # override variables for development
 variables:
-  trmnl: {}
+  trmnl:
+    user:
+      utc_offset: 3600  # mock UTC+1; change to match your local offset for timezone testing
