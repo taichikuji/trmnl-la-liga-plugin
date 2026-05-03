@@ -7,8 +7,7 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
-serverless_language: ''
-polling_url: 'https://dns.google/resolve?name=blocked.dns.hayahora.futbol&type=A'
+polling_url: 'https://dns.adguard-dns.com/resolve?name=blocked.dns.hayahora.futbol&type=A'
 polling_headers: ''
 polling_body: ''
 icon: media/icon.svg
