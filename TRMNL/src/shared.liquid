@@ -5,11 +5,11 @@
 {%- assign lang_value = trmnl.plugin_settings.custom_fields_values.language | default: language | default: 'spanish' -%}
 {%- assign lang = lang_value | downcase -%}
 
-{%- assign is_blocked_final = false -%}
-{%- assign dns_status = Status | append: '' -%}
-{%- if dns_status == '0' and Answer != blank -%}
-  {%- assign is_blocked_final = true -%}
-{%- endif -%}
+    {%- assign is_blocked = false -%}
+    {%- assign dns_status = Status | append: '' -%}
+    {%- if dns_status == '0' and Answer != blank -%}
+      {%- assign is_blocked = true -%}
+    {%- endif -%}
 
 {%- if lang == 'english' -%}
   {%- assign t_title_long = 'Is there football now?' -%}
@@ -37,7 +37,7 @@
 {%- assign _ts = trmnl.system.timestamp_utc | default: 'now' -%}
 {%- assign t_updated_val = _ts | date: "%s" | plus: trmnl.user.utc_offset | date: "%H:%M" -%}
 
-{%- if is_blocked_final -%}
+{%- if is_blocked -%}
   {%- assign t_blocked_text = t_blocked_yes -%}
   {%- assign t_desc_long = t_desc_yes_long -%}
   {%- assign t_desc = t_desc_yes -%}
