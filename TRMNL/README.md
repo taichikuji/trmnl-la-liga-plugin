@@ -38,6 +38,6 @@ The plugin icon is stored in the TRMNL bundle and referenced from settings.yml.
 
 ```
 
-To be done
+{"Status":3,"TC":false,"RD":true,"RA":true,"AD":false,"CD":false,"Question":[{"name":"blocked.dns.hayahora.futbol.","type":1}],"Authority":[{"name":"dns.hayahora.futbol.","type":6,"TTL":1800,"data":"ns1.digitalocean.com. hostmaster.dns.hayahora.futbol. 0 10800 3600 604800 1800"}],"Comment":"Response from 172.64.52.210."}
 
 ```
