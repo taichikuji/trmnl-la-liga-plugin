@@ -7,7 +7,7 @@
 {%- assign is_blocked = false -%}
 {%- assign dns_status = Status | append: '' -%}
 {%- assign answer_count = Answer | size -%}
-{%- if dns_status == '0' and answer_count > 25 -%}
+{%- if dns_status == '0' and answer_count > 10 -%}
   {%- assign is_blocked = true -%}
 {%- endif -%}
 {%- assign t_status_bar = 'hayahora.futbol' -%}
